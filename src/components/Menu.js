@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, KeyboardAvoidingView  } from 'react-native';
+import { View, Text } from 'react-native';
 import { Content, List, ListItem } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
