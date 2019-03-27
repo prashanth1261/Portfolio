@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
+//import { ListItem } from 'react-native-elements';
 import { addressFetch } from '../actions';
-
 import ListItem from './ListItem';
 
 class Home extends Component {
@@ -18,27 +18,41 @@ class Home extends Component {
   }
 
   render() {
-    console.log('adrressss', this.props.address[0]);
+    console.log('adrressss', this.props.address);
+    console.log('adrressss 1', this.props.address[[0][[0][0]]]);
+    console.log('flattened array', this.props.address.flat(2));
+    //let x = this.props.address[[0][[0][0]]];
+    //console.log('x', x[0]);;
     //let data2 = this.props.address[0];
     //const newaddress = _.map(data2);
     //let arr = ["Name", "Address"];
+    //const jsonQuery = require('json-query');
+
+    //let FullName = jsonQuery('[*][FullName]', { data: x }).value;
+    
+    //console.log('FullName', FullName);
     return (
       <FlatList
-        data={this.props.address}
+        data={this.props.address.flat(2)}
         renderItem={this.renderRow}
-        keyExtractor={address => address.uid}
+        keyExtractor={address => address.Email}
       />
     );
   }
 
 }
 
+
 const mapStateToProps = state => {
   const address = _.map(state.address, (val, uid) => {
-    return { ...val, uid };
-  });
-
+      return (_.map(val, (items) => { 
+        return (_.map(items, (lst) => {
+          return { ...lst, uid };
+        }));
+      })); 
+});
   return { address };
 };
 
 export default connect(mapStateToProps, { addressFetch })(Home);
+  

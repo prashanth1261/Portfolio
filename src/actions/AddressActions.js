@@ -7,7 +7,7 @@ import {
 } from './types';
 
 const deleteData = () => {
-    const { currentUser } = firebase.auth();
+   const { currentUser } = firebase.auth();
     firebase.database().ref(`/users/${currentUser.uid}/Address`).remove();
 };
 
@@ -33,10 +33,10 @@ export const addressUpdate = ({ prop, value }) => {
 };
 
 export const addressFetch = () => {
-  const { currentUser } = firebase.auth();
+  //const { currentUser } = firebase.auth();
   //const { authData } = firebase.auth();
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/Address`)
+    firebase.database().ref('/users/')
       .on('value', snapshot => {
           dispatch({ type: ADDRESS_FETCH_SUCCESS, payload: snapshot.val() });
           console.log('snapshot', snapshot.val());
