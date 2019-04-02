@@ -43,3 +43,9 @@ export const addressFetch = () => {
       });
   };
 };
+
+export const emptyForm = () => {
+  return {
+    type: ADDRESS_SAVE_SUCCESS
+  };
+};

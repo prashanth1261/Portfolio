@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
-import { Text, View, KeyboardAvoidingView, ImageBackground, Button } from 'react-native';
+import { View, Alert, KeyboardAvoidingView, ImageBackground, Button, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Input } from './common';
-import { addressCreate, addressUpdate } from '../actions';
+import { addressCreate, addressUpdate, emptyForm } from '../actions';
 
 class AddressForm extends Component {
-  onButtonPress() {
-      const { FullName, Street, Phone, Email, State, City, Zip } = this.props;
 
+  onCheckPress() {
+    const { FullName, Street, Phone, Email, State, City, Zip } = this.props;
+    // eslint-disable-next-line eqeqeq
+    if (FullName == '' || Street == '' || Phone == '' || Email == '' || State == '' || City == '' || Zip == '') {
+      Alert.alert('Please enter all the values');
+      this.props.emptyForm({ FullName, Street, Phone, Email, State, City, Zip });
+    } else {
       this.props.addressCreate({ FullName, Street, Phone, Email, State, City, Zip });
+    }
   }
-
+  
   render() {
     return (
+      
       <ImageBackground
         source={require('./image_assets/Address/Address.jpg')}
         style={styles.backgroundimage}
       >
           <KeyboardAvoidingView style={styles.BackgroundStyle} enables>
+          
             <View style={styles.overlayContainer}>
-                <View style={{ top: '5%' }}>
+                <ScrollView>
+                <View style={{ top: '5%', bottom: '5%' }}>
                     <Card style={{ borderColor: 'rgba(255,255,255, .1)' }}>
                       <CardSection style={{ backgroundColor: 'rgba(255,255,255, .1)' }}>
                         <Input
@@ -78,18 +86,26 @@ class AddressForm extends Component {
                           onChangeText={value => this.props.addressUpdate({ prop: 'Zip', value })}
                         />
                       </CardSection>
-                      <CardSection style={{ alignSelf: 'center' }}>
-                        <Button
-                          title="Save"
-                          color='rgba(0,0,0,1)'
-                          onPress={this.onButtonPress.bind(this)}
-                        />
-                      </CardSection>
-                    </Card>
+                      </Card>
                 </View>
+                  <View style={{ paddingTop: '10%' }}>
+                    <Card style={{ borderColor: 'rgba(255,255,255, .1)' }}>
+                      <CardSection style={{ alignSelf: 'center' }}>
+                          <Button
+                            title="Save"
+                            color='rgba(0,0,0,1)'
+                            onPress={this.onCheckPress.bind(this)}
+                          />
+                        </CardSection>
+                      </Card>
+                  </View>
+                </ScrollView>
             </View>
+            
           </KeyboardAvoidingView>
+          
       </ImageBackground>
+      
     );
   }
 }
@@ -106,7 +122,7 @@ const styles = {
   },
   overlayContainer: {
     flex: 1,
-    backgroundColor: 'rgba(47, 164, 218, 0.5)',
+    backgroundColor: 'rgba(47, 164, 218, 0.5)'
   }
 };
 
@@ -116,4 +132,4 @@ const mapStateToProps = (state) => {
     return { FullName, Street, Phone, Email, State, City, Zip };
 };
 
-export default connect(mapStateToProps, { addressCreate, addressUpdate })(AddressForm);
+export default connect(mapStateToProps, { emptyForm, addressCreate, addressUpdate })(AddressForm);

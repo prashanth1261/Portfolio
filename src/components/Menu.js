@@ -22,10 +22,17 @@ class Menu extends Component {
           </List>
 
           <List style={{ backgroundColor: 'rgba(187,187,187,0.8)' }}>
+            <ListItem style={{ borderColor: 'rgba(187,187,187,0.8)' }} onPress={() => Actions.titles()}>
+              <Text Style={{ backgroundColor: 'rgba(187,187,187,0.8)', color: 'white' }}> Ttile </Text>
+            </ListItem>
+          </List>
+
+          <List style={{ backgroundColor: 'rgba(187,187,187,0.8)' }}>
             <ListItem style={{ borderColor: 'rgba(187,187,187,0.8)' }} onPress={() => Actions.auth()}>
               <Text Style={{ backgroundColor: 'rgba(187,187,187,0.8)', color: 'white' }}> Logout </Text>
             </ListItem>
           </List>
+
         </Content>
       </View>
     );

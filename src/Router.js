@@ -7,7 +7,7 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import AddressForm from './components/AddressForm';
 import Menu from './components/Menu';
-import ListItem from './components/ListItem';
+import titleForm from './components/titleForm';
 
 const RouterComponent = () => {
     return (
@@ -24,6 +24,7 @@ const RouterComponent = () => {
             <Scene key="drawer" drawer drawerWidth={230} contentComponent={Menu} drawerPosition="left" drawerLabel="hi" >
               <Scene key="home" component={Home} title="Welcome" initial titleStyle={{ textAlign: 'center', flex: 1, color: '#fff' }} initial navigationBarStyle={{ backgroundColor: 'rgba(153,0,153,0.8)' }} />
               <Scene key="address" component={AddressForm} title="Enter your address details" navigationBarStyle={{ backgroundColor: 'rgba(187,187,187,0.8)' }} />
+              <Scene key="titles" component={titleForm} title="Enter your title" />
             </Scene>
         </Scene>
       </Router>

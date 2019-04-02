@@ -20,7 +20,10 @@ class Home extends Component {
   render() {
     console.log('adrressss', this.props.address);
     console.log('adrressss 1', this.props.address[[0][[0][0]]]);
-    console.log('flattened array', this.props.address.flat(2));
+    const add = [].concat(...this.props.address);
+    const add1 = [].concat(...add);
+    console.log('add1', add1);
+    //console.log('flattened array', this.props.address.flat(2));
     //let x = this.props.address[[0][[0][0]]];
     //console.log('x', x[0]);;
     //let data2 = this.props.address[0];
@@ -33,9 +36,9 @@ class Home extends Component {
     //console.log('FullName', FullName);
     return (
       <FlatList
-        data={this.props.address.flat(2)}
+        data={add1}
         renderItem={this.renderRow}
-        keyExtractor={address => address.Email}
+        keyExtractor={address => address.uid}
       />
     );
   }
