@@ -11,16 +11,12 @@ const deleteData = () => {
     firebase.database().ref(`/users/${currentUser.uid}/Address`).remove();
 };
 
-export const addressCreate = ({ FullName, Street, Phone, Email, State, City, Zip }) => {
+export const addressCreate = ({ FullName, Street, Phone, Email, State, City, Zip, University, Title, Degree, Major, GPA, LinkedIn, GitHub }) => {
   const { currentUser } = firebase.auth();
     deleteData();
-  return (dispatch) => {
+  return () => {
       firebase.database().ref(`/users/${currentUser.uid}/Address`)
-        .push({ FullName, Street, Phone, Email, State, City, Zip })
-        .then(() => {
-      dispatch({ type: ADDRESS_SAVE_SUCCESS });
-    }
-  );
+        .push({ FullName, Street, Phone, Email, State, City, Zip, University, Title, Degree, Major, GPA, LinkedIn, GitHub });
 };
 };
 
@@ -33,8 +29,6 @@ export const addressUpdate = ({ prop, value }) => {
 };
 
 export const addressFetch = () => {
-  //const { currentUser } = firebase.auth();
-  //const { authData } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref('/users/')
       .on('value', snapshot => {

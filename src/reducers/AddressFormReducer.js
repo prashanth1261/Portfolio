@@ -10,7 +10,14 @@ const INITIAL_STATE = {
   Email: '',
   state: '',
   City: '',
-  Zip: ''
+  Zip: '',
+  University: '',
+  Title: '',
+  Degree: '',
+  Major: '',
+  GPA: '',
+  LinkedIn: '',
+  GitHub: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

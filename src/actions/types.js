@@ -9,6 +9,3 @@ export const ADDRESS_CREATE = 'address_create';
 export const ADDRESS_UPDATE = 'address_update';
 export const ADDRESS_FETCH_SUCCESS = 'address_fetch_success';
 export const ADDRESS_SAVE_SUCCESS = 'address_save_success';
-export const TITLE_UPDATE = 'title_update';
-export const TITLE_FETCH_SUCCESS = 'title_fetch_success';
-export const TITLE_SAVE_SUCESS = 'title_save_success';

@@ -17,13 +17,7 @@ class Menu extends Component {
 
           <List style={{ backgroundColor: 'rgba(187,187,187,0.8)' }}>
             <ListItem style={{ borderColor: 'rgba(187,187,187,0.8)' }} onPress={() => Actions.address()}>
-              <Text Style={{ backgroundColor: 'rgba(187,187,187,0.8)', color: 'white' }}> Address</Text>
-            </ListItem>
-          </List>
-
-          <List style={{ backgroundColor: 'rgba(187,187,187,0.8)' }}>
-            <ListItem style={{ borderColor: 'rgba(187,187,187,0.8)' }} onPress={() => Actions.titles()}>
-              <Text Style={{ backgroundColor: 'rgba(187,187,187,0.8)', color: 'white' }}> Ttile </Text>
+              <Text Style={{ backgroundColor: 'rgba(187,187,187,0.8)', color: 'white' }}> Info </Text>
             </ListItem>
           </List>
 
