@@ -14,6 +14,7 @@ class AddressForm extends Component {
     } else {
       this.props.addressCreate({ FullName, Street, Phone, Email, State, City, Zip, University, Title, Degree, Major, GPA, LinkedIn, GitHub });
       this.props.emptyForm({ FullName, Street, Phone, Email, State, City, Zip, University, Title, Degree, Major, GPA, LinkedIn, GitHub });
+      Alert.alert('Address save successfull');
     }
   }
   

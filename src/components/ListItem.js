@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, YellowBox, Alert, Clipboard, TouchableWithoutFeedback, UIManager, Platform, LayoutAnimation } from 'react-native';
+import { Text, View, Alert, Clipboard, TouchableWithoutFeedback, YellowBox, LayoutAnimation } from 'react-native';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Card, CardSection } from './common';
@@ -12,10 +12,6 @@ console.warn = message => {
     _console.warn(message);
   }
 };
-
-if (Platform.OS === 'android') {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
- }
 
 class ListItem extends Component {
       

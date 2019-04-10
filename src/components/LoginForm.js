@@ -11,7 +11,6 @@ class LoginForm extends Component {
   }
   onPasswordChange(text) {
     this.props.passwordChanged(text);
-    console.log(this.props);
   }
   onButtonPress() {
     const { email, password } = this.props;
@@ -39,7 +38,7 @@ class LoginForm extends Component {
     }
 
     return (
-      <View style={{ marginLeft: 90 }}>
+      <View style={{ marginLeft: 130 }}>
         <Button
           title="Login"
           color='rgba(255,255,255, .1)'
@@ -78,19 +77,19 @@ class LoginForm extends Component {
                   <CardSection style={{ backgroundColor: 'rgba(255,255,255, .1)', }}>
                     {this.renderButton()}
 
-                    <View style={{ marginLeft: 90 }}>
+                    {/*<View style={{ marginLeft: 90 }}>
                       <Button
                         title="Recruiter?"
                         style={styles.buttonStyle}
                         color='rgba(255,255,255, .1)'
-                      />
-                    </View>
+                      /> 
+                    </View>*/}
                   </CardSection>
               </Card>
 
                     <Card style={{ borderColor: 'rgba(255,255,255, .1)' }}>
                             <CardSection style={{ backgroundColor: 'rgba(255,255,255, .1)', }}>
-                            <View style={{ marginLeft: 60 }}>
+                            <View style={{ marginLeft: 130 }}>
                             <Button
                               title="New User"
                               style={styles.buttonStyle}
@@ -98,13 +97,13 @@ class LoginForm extends Component {
                               onPress={this.onSignInButtonPress.bind(this)}
                             />
                             </View>
-                            <View style={{ marginLeft: 50 }}>
-                            <Button
-                              title="Forgot Password?"
-                              style={styles.buttonStyle}
-                              color='rgba(255,255,255, .1)'
-                            />
-                            </View>
+                           {/* <View style={{ marginLeft: 50 }}>
+                              <Button
+                                title="Forgot Password?"
+                                  style={styles.buttonStyle}
+                                  color='rgba(255,255,255, .1)'
+                              /> 
+                            </View>*/}
                             </CardSection>
                     </Card>
         </View>

@@ -1,44 +1,91 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { FlatList } from 'react-native';
+import { FlatList, View, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
-//import { ListItem } from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
 import { addressFetch } from '../actions';
 import ListItem from './ListItem';
 
 class Home extends Component {
+          constructor(props) {
+            super(props);
+
+            this.state = {
+              
+              data: []
+              
+            };
+
+            this.arrayholder = [];
+            }
+
   componentWillMount() {
       this.createDataSource(this.props);
+  }
+  componentWillUpdate = () => {
+    LayoutAnimation.easeInEaseOut();
   }
   createDataSource() {
     this.props.addressFetch();
   }
+  
+  searchFilterFunction = text => {
+    this.setState({ value: text });
+    const newData = this.arrayholder.filter(item => {
+      const itemData = `${item.FullName.toUpperCase()}`;
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({
+      data: newData,
+    });
+    console.log('Data', this.state.data);
+  };
+ 
+  renderHeader = () => {
+    return (
+      <SearchBar
+        placeholder="Type your name Here..."
+        lightTheme
+        round
+        inputStyle={{ color: 'black' }}
+        onChangeText={text => this.searchFilterFunction(text)}
+        autoCorrect={false}
+        value={this.state.value}
+      />
+    );
+  };
+
   renderRow(address) {
     return <ListItem address={address} />;
   }
 
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: '86%',
+          backgroundColor: '#CED0CE',
+          marginLeft: '14%',
+        }}
+      />
+    );
+};
+
   render() {
-    console.log('adrressss', this.props.address);
-    console.log('adrressss 1', this.props.address[[0][[0][0]]]);
     const add = [].concat(...this.props.address);
     const add1 = [].concat(...add);
-    console.log('add1', add1);
-    //console.log('flattened array', this.props.address.flat(2));
-    //let x = this.props.address[[0][[0][0]]];
-    //console.log('x', x[0]);;
-    //let data2 = this.props.address[0];
-    //const newaddress = _.map(data2);
-    //let arr = ["Name", "Address"];
-    //const jsonQuery = require('json-query');
-
-    //let FullName = jsonQuery('[*][FullName]', { data: x }).value;
-    
-    //console.log('FullName', FullName);
+    this.arrayholder = add1;
+    //console.log('arrayholder', this.arrayholder);
+    //console.log('flatlist data', this.state.data);
     return (
       <FlatList
-        data={add1}
+        data={this.state.data}
         renderItem={this.renderRow}
         keyExtractor={address => address.uid}
+        ListHeaderComponent={this.renderHeader}
+        ItemSeparatorComponent={this.renderSeparator}
       />
     );
   }
