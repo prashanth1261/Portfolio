@@ -1,7 +1,9 @@
 {
-  "name": "Portfolio",
+  "name": "portfolio",
   "version": "0.0.1",
   "private": true,
+  "description": "A app which consists of users data and can view other users data too",
+  "author": "Prashanth Dyavarashetty",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"

@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER, LOGIN_USER_SUCCESS, SIGN_UP_USER_FAIL, SIGN_UP_USER, LOGIN_USER_FAIL } from './types';
 
+
 export const emailChanged = (text) => {
   return {
     type: EMAIL_CHANGED,

@@ -10,14 +10,16 @@ class App extends Component {
 
   componentWillMount() {
     const config = {
-      apiKey: 'AIzaSyDRxr6HLwMNLi9aXQedDlOsiSL3WWszLg0',
-      authDomain: 'portfolio-7bff5.firebaseapp.com',
-      databaseURL: 'https://portfolio-7bff5.firebaseio.com',
-      projectId: 'portfolio-7bff5',
-      storageBucket: 'portfolio-7bff5.appspot.com',
-      messagingSenderId: '183141657838'
+      apiKey: '*****************************',
+      authDomain: '*****************************',
+      databaseURL: '***************************',
+      projectId: '*****************************',
+      storageBucket: '****************************',
+      messagingSenderId: '***********************'
     };
-    firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+   }
   }
 
     render() {

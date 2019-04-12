@@ -1,4 +1,8 @@
 {
   "name": "Portfolio",
-  "displayName": "Portfolio"
+  "displayName": "Portfolio",
+  "version": "0.0.1",
+  "privacy": "public",
+  "icon": "./logo.png",
+  "description": "A app which consists of users data and can view other users data too",
 }

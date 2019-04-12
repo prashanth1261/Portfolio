@@ -32,20 +32,19 @@ class Home extends Component {
   searchFilterFunction = text => {
     this.setState({ value: text });
     const newData = this.arrayholder.filter(item => {
-      const itemData = `${item.FullName.toUpperCase()}`;
+      const itemData = `${item.Title.toUpperCase()}`;
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
     this.setState({
       data: newData,
     });
-    console.log('Data', this.state.data);
   };
  
   renderHeader = () => {
     return (
       <SearchBar
-        placeholder="Type your name Here..."
+        placeholder="Search by Title eg: Mobile Developer"
         lightTheme
         round
         inputStyle={{ color: 'black' }}

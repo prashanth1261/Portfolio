@@ -1,4 +1,4 @@
-package com.portfolio;
+package com.portfolio.prashanthdyavarashetty;
 
 import com.facebook.react.ReactActivity;
 

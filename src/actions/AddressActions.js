@@ -4,7 +4,6 @@ import {
   ADDRESS_UPDATE,
   ADDRESS_FETCH_SUCCESS,
   ADDRESS_SAVE_SUCCESS,
-  EMPTY_SEARCHBAR_ON_LOGOUT
 } from './types';
 
 const deleteData = () => {
@@ -44,4 +43,3 @@ export const emptyForm = () => {
     type: ADDRESS_SAVE_SUCCESS
   };
 };
-
